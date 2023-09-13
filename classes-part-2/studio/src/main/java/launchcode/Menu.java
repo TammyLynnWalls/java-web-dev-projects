@@ -1,13 +1,13 @@
-package org.launchcode;
+package main.java.launchcode;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Menu {
     private Date lastUpdated;
-    private ArrayList<MenuItem> items;
+    private ArrayList<main.java.launchcode.MenuItem> items;
 
-    public Menu(Date d, ArrayList<MenuItem> i) {
+    public Menu(Date d, ArrayList<main.java.launchcode.MenuItem> i) {
         this.lastUpdated = d;
         this.items = i;
     }
@@ -16,7 +16,7 @@ public class Menu {
         this.lastUpdated = lastUpdated;
     }
 
-    public void setItems(ArrayList<MenuItem> items) {
+    public void setItems(ArrayList<main.java.launchcode.MenuItem> items) {
         this.items = items;
     }
 

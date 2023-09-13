@@ -1,4 +1,4 @@
-package org.launchcode;
+package main.java.launchcode;
 
 public class MenuItem {
     private double price;
