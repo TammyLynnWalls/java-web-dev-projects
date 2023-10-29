@@ -1,6 +1,7 @@
 package org.launchcode.codingevents.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,9 +31,11 @@ public class Event extends AbstractEntity{
     @Future (message="Event must be in the future.")
     private Date dateOfEvent;
 
-    private EventType type;
+    @ManyToOne
+    @NotNull(message = "Category is required")
+    private EventCategory eventCategory;
 
-    public Event(String name, String description, String contactEmail, EventType event) {
+    public Event(String name, String description, String contactEmail, EventCategory eventCategory) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
@@ -40,7 +43,7 @@ public class Event extends AbstractEntity{
         this.registrationRequired = registrationRequired;
         this.numberOfAttendees = numberOfAttendees;
         this.dateOfEvent = dateOfEvent;
-        this.type = type;
+        this.eventCategory = eventCategory;
 
     }
 
@@ -71,17 +74,13 @@ public class Event extends AbstractEntity{
         this.contactEmail = contactEmail;
     }
 
-    public EventType getType() {
-        return type;
+    public EventCategory getEventCategory() {
+        return eventCategory;
     }
 
-    public void setType(EventType type) {
-        this.type = type;
+    public void setEventCategory(EventCategory eventCategory) {
+        this.eventCategory = eventCategory;
     }
-
-//    public int getId() {
-//        return id;
-//    }
 
     public String getLocation() {
         return location;
@@ -114,6 +113,8 @@ public class Event extends AbstractEntity{
     public void setDateOfEvent(Date dateOfEvent) {
         this.dateOfEvent = dateOfEvent;
     }
+
+
 
     @Override
     public String toString() {
