@@ -23,10 +23,6 @@ public class EventController {
     @Autowired
     EventCategoryRepository eventCategoryRepository;
 
-
-
-
-
     @GetMapping
     public String displayEvents(@RequestParam(required = false) Integer categoryId, Model model) {
 
@@ -43,9 +39,9 @@ public class EventController {
                 model.addAttribute("events", category.getEvents());
             }
         }
-
         return "events/index";
     }
+
 
     //lives at /events/create
     @GetMapping("create")
